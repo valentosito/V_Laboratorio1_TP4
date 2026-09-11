@@ -6,6 +6,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 
+// La ventana VistaInscripcion es la única vista que termina trabajando con los dos HashSet que contienen Materia:
+// toma una materia del conjunto general y se la intenta agregar al conjunto particular del alumno seleccionado.
+
+
 public class VistaInscripcion extends javax.swing.JInternalFrame {
 
     // 1er paso
@@ -27,6 +31,14 @@ public class VistaInscripcion extends javax.swing.JInternalFrame {
         cargarMaterias();
     }
 
+    
+    
+    // Dos métodos que manipulan los HashSet generales. 
+    
+    // Objetivo: pasar los objetos que están en los HashSet generales a los JComboBox 
+    // para que el usuario pueda seleccionarlos desde la interfaz.
+    
+    // --> Puente entre los datos que ya existen y lo que se muestra en pantalla; cargar la interfaz.
     
     private void cargarAlumnos() {
         
@@ -149,12 +161,16 @@ public class VistaInscripcion extends javax.swing.JInternalFrame {
 
     
     
+    // Es el único método manejador que sí trabaja con clases y por ende con el HashSet particular... El otro HashSet de Materia.
+    
     private void btnInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInscribirActionPerformed
         
         
         Alumno alumno = (Alumno) cmbAlumnos.getSelectedItem();
         Materia materia = (Materia) cmbMaterias.getSelectedItem();
         
+        
+        // Por cada objeto Alumno existe un HashSet<Materia> propio: 
         if (alumno.agregarMateria(materia)) {
             
             JOptionPane.showMessageDialog(this, "Materia inscripta correctamente.");

@@ -9,13 +9,16 @@ public class VistaAlumnos extends javax.swing.JInternalFrame {
     
     private  HashSet<Alumno> setDeAlumnos; // variable referencial para apuntar al static HashSet de Alumno
 
+    
+    
     public VistaAlumnos(HashSet<Alumno> setDeAlumnos) {
         
         initComponents();
         
         setFrameIcon(new ImageIcon(getClass().getResource("/gui_tp4/logoULP.png")));
         
-        this.setDeAlumnos = setDeAlumnos;  // Asignar la referencia que se recibe por parámetro al atributo (HashSet) de la clase.
+        this.setDeAlumnos = setDeAlumnos;  // Asignación de la referencia que se recibe por parámetro al atributo (HashSet) de la clase.
+                                           // La invocación la hace Vista Principal desde el método manejador de Agregar Alumno.
     }
 
     

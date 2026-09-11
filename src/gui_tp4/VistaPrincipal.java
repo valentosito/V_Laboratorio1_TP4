@@ -11,10 +11,15 @@ public class VistaPrincipal extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VistaPrincipal.class.getName());
 
-    // HashSet accesibles para el resto de las vistas:
-    private static HashSet<Alumno> setDeAlumnos = new HashSet<>();
-    private static HashSet<Materia> setDeMaterias = new HashSet<>();
+    // HashSets accesibles para el resto de las vistas:
+    private static HashSet<Alumno> setDeAlumnos = new HashSet<>(); // todos los alumnos en el sistema
     
+    private static HashSet<Materia> setDeMaterias = new HashSet<>(); // todas las materias disponibles en el sistema
+    
+    // EN CAMBIO, el OTRO setDeMaterias que hay en Alumno representa todas materias en las que un alumno está inscripto.
+    
+    // HashSet en VistaPrincipal equivale a un catálogo.
+    // Hashset en clase Alumno equivale a un registro personal.
     
    
     public VistaPrincipal() {
@@ -93,11 +98,13 @@ public class VistaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    // Evento: crea y abre VistaAlumnos
     private void mniAgregarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAgregarAlumnoActionPerformed
              
         VistaAlumnos vista = new VistaAlumnos(setDeAlumnos);  // Se crea una vista Alumnos y se le pasa el HashSet compartido
         
-        dtpEscritorio.add(vista);  // Se agrega la vista de Alumnos a escritorio
+        dtpEscritorio.add(vista);  // Se agrega la vista de Alumnos al JDesktopPane escritorio
         
         vista.setVisible(true); // Se muestra.
         

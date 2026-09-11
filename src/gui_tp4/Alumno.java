@@ -8,7 +8,9 @@ public class Alumno {
     private int nroLegajo;
     private String apellido;
     private String nombre;
-    private HashSet<Materia> setDeMaterias; // AGREGACIÓN
+    
+    // Por cada objeto Alumno existe un HashSet<Materia> propio: 
+    private HashSet<Materia> setDeMaterias; // AGREGACIÓN: alumno tiene materias.
 
     
     public Alumno(int nroLegajo, String apellido, String nombre) {
@@ -50,8 +52,8 @@ public class Alumno {
         this.setDeMaterias = setDeMaterias;
     }
     
-    
-    public boolean  agregarMateria(Materia materia){
+    // AGREGACIÓN
+    public boolean agregarMateria(Materia materia){
         
         return setDeMaterias.add(materia);  // true o false
     }
@@ -68,9 +70,6 @@ public class Alumno {
     public String toString() {
         return "Alumno{" + "nroLegajo=" + nroLegajo + ", apellido=" + apellido + ", nombre=" + nombre + '}';
     }
-
-    
-    
     
     
 }
