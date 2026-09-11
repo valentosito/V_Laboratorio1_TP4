@@ -172,7 +172,9 @@ public class VistaInscripcion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cmbMateriasActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        // TODO add your handling code here:
+       
+        dispose ();
+        
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void cmbAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbAlumnosActionPerformed

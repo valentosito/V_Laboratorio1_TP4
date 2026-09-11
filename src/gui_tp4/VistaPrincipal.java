@@ -43,11 +43,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         dtpEscritorio.setLayout(dtpEscritorioLayout);
         dtpEscritorioLayout.setHorizontalGroup(
             dtpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 576, Short.MAX_VALUE)
         );
         dtpEscritorioLayout.setVerticalGroup(
             dtpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
+            .addGap(0, 392, Short.MAX_VALUE)
         );
 
         mnuAlumno.setText("Alumno");
@@ -61,6 +61,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         mnuMateria.setText("Materia");
 
         mniAgregarMateria.setText("Agregar materia");
+        mniAgregarMateria.addActionListener(this::mniAgregarMateriaActionPerformed);
         mnuMateria.add(mniAgregarMateria);
 
         mnbPrincipal.add(mnuMateria);
@@ -68,6 +69,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         mnuRegistro.setText("Registro");
 
         mniFormularioInscripcion.setText("Formulario de inscripción");
+        mniFormularioInscripcion.addActionListener(this::mniFormularioInscripcionActionPerformed);
         mnuRegistro.add(mniFormularioInscripcion);
 
         mnbPrincipal.add(mnuRegistro);
@@ -92,11 +94,34 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mniAgregarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAgregarAlumnoActionPerformed
+             
+        VistaAlumnos vista = new VistaAlumnos(setDeAlumnos);  // Se crea una vista Alumnos y se le pasa el HashSet compartido
         
+        dtpEscritorio.add(vista);  // Se agrega la vista de Alumnos a escritorio
         
-        
+        vista.setVisible(true); // Se muestra.
         
     }//GEN-LAST:event_mniAgregarAlumnoActionPerformed
+
+    private void mniAgregarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAgregarMateriaActionPerformed
+               
+        VistaMaterias vista = new VistaMaterias(setDeMaterias);
+        
+        dtpEscritorio.add(vista);
+        
+        vista.setVisible(true);
+        
+    }//GEN-LAST:event_mniAgregarMateriaActionPerformed
+
+    private void mniFormularioInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniFormularioInscripcionActionPerformed
+        
+        VistaInscripcion vista = new VistaInscripcion(setDeAlumnos, setDeMaterias);
+        
+        dtpEscritorio.add(vista);
+
+        vista.setVisible(true);      
+        
+    }//GEN-LAST:event_mniFormularioInscripcionActionPerformed
 
     
     public static void main(String args[]) {

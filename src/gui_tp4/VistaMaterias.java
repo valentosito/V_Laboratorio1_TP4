@@ -66,6 +66,7 @@ public class VistaMaterias extends javax.swing.JInternalFrame {
         btnNuevo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnNuevo.setForeground(new java.awt.Color(255, 255, 255));
         btnNuevo.setText("Nuevo");
+        btnNuevo.addActionListener(this::btnNuevoActionPerformed);
 
         btnSalir.setBackground(new java.awt.Color(0, 177, 159));
         btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -151,12 +152,28 @@ public class VistaMaterias extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtCodigoMateriaActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
+        
+        int codigo = Integer.parseInt(txtCodigoMateria.getText());  // parseo: de String a int
+        String nombre = txtNombreMateria.getText();
+        int anio = Integer.parseInt(txtAnioMateria.getText());
+
+        Materia materia = new Materia(codigo, nombre, anio);
+        setDeMaterias.add(materia);
+             
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        // TODO add your handling code here:
+
+        dispose (); 
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+            
+        txtCodigoMateria.setText("");
+        txtNombreMateria.setText("");
+        txtAnioMateria.setText("");
+        
+    }//GEN-LAST:event_btnNuevoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
