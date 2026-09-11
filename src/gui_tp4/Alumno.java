@@ -10,6 +10,7 @@ public class Alumno {
     private String nombre;
     
     // Por cada objeto Alumno existe un HashSet<Materia> propio: 
+    
     private HashSet<Materia> setDeMaterias; // AGREGACIÓN: alumno tiene materias.
 
     

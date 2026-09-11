@@ -7,6 +7,9 @@ import java.util.HashSet;
 import javax.swing.ImageIcon;
 
 
+// los HashSet generales contienen "qué existe"; el HashSet<Materia> dentro de cada Alumno contiene "qué tiene ese alumno".
+
+
 public class VistaPrincipal extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VistaPrincipal.class.getName());
@@ -120,6 +123,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_mniAgregarMateriaActionPerformed
 
+   
+    
     private void mniFormularioInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniFormularioInscripcionActionPerformed
         
         VistaInscripcion vista = new VistaInscripcion(setDeAlumnos, setDeMaterias);

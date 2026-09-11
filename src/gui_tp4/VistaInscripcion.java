@@ -161,16 +161,16 @@ public class VistaInscripcion extends javax.swing.JInternalFrame {
 
     
     
-    // Es el único método manejador que sí trabaja con clases y por ende con el HashSet particular... El otro HashSet de Materia.
+    // Es el único método manejador que sí trabaja con las clases y por ende con el HashSet particular... El otro HashSet de Materia.
     
     private void btnInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInscribirActionPerformed
         
         
         Alumno alumno = (Alumno) cmbAlumnos.getSelectedItem();
         Materia materia = (Materia) cmbMaterias.getSelectedItem();
-        
-        
+           
         // Por cada objeto Alumno existe un HashSet<Materia> propio: 
+        
         if (alumno.agregarMateria(materia)) {
             
             JOptionPane.showMessageDialog(this, "Materia inscripta correctamente.");
