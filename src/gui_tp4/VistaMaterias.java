@@ -1,17 +1,26 @@
 
 package gui_tp4;
 
+import java.util.HashSet;
 import javax.swing.ImageIcon;
 
 public class VistaMaterias extends javax.swing.JInternalFrame {
 
    
-    public VistaMaterias() {
+    HashSet<Materia> setDeMaterias;  // // variable referencial para apuntar al static HashSet de Materia
+    
+    public VistaMaterias(HashSet<Materia> setDeMaterias) {
+        
         initComponents();
+        
         setFrameIcon(new ImageIcon(getClass().getResource("/gui_tp4/logoULP.png")));
-
+        
+        this.setDeMaterias = setDeMaterias; // Asignar la referencia que se recibe por parámetro al atributo (HashSet) de la clase.
+        
     }
 
+    // Ahora el atributo this.setDeMaterias queda apuntando al HashSet
+    // y lo puedo usar desde cualquier método de VistaMaterias.
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

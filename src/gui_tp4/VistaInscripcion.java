@@ -1,17 +1,50 @@
 
 package gui_tp4;
 
+import java.util.HashSet;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 
 public class VistaInscripcion extends javax.swing.JInternalFrame {
 
+    // 1er paso
+    
+    private HashSet<Alumno> setDeAlumnos;
+    private HashSet<Materia> setDeMaterias;
    
-    public VistaInscripcion() {
+    
+    // 2do paso
+    public VistaInscripcion(HashSet<Alumno> setDeAlumnos, HashSet<Materia> setDeMaterias) {
+        
         initComponents();
         setFrameIcon(new ImageIcon(getClass().getResource("/gui_tp4/logoULP.png")));
+        
+        this.setDeAlumnos = setDeAlumnos;
+        this.setDeMaterias = setDeMaterias;
+        
+        cargarAlumnos();
+        cargarMaterias();
     }
 
+    
+    private void cargarAlumnos() {
+        
+        for (Alumno alumno : setDeAlumnos) {
+        
+            cmbAlumnos.addItem(alumno);
+        }
+    }
+    
+    private void cargarMaterias() {
+        
+        for (Materia materia : setDeMaterias) {
+            
+            cmbMaterias.addItem(materia);
+        }
+    }
+    
+    
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -38,10 +71,9 @@ public class VistaInscripcion extends javax.swing.JInternalFrame {
         jLabel3.setText("Elija un alumno:");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        cmbMaterias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "Olivares Aimé", "Rodríguez Melisa", "Toso Valentina" }));
         cmbMaterias.addActionListener(this::cmbMateriasActionPerformed);
 
-        cmbAlumnos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "Web 2", "Matemáticas 1", "Laboratorio 1" }));
+        cmbAlumnos.addActionListener(this::cmbAlumnosActionPerformed);
 
         btnInscribir.setBackground(new java.awt.Color(0, 177, 159));
         btnInscribir.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -115,8 +147,24 @@ public class VistaInscripcion extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
     private void btnInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInscribirActionPerformed
-        // TODO add your handling code here:
+        
+        
+        Alumno alumno = (Alumno) cmbAlumnos.getSelectedItem();
+        Materia materia = (Materia) cmbMaterias.getSelectedItem();
+        
+        if (alumno.agregarMateria(materia)) {
+            
+            JOptionPane.showMessageDialog(this, "Materia inscripta correctamente.");
+            
+        } else {
+            
+            JOptionPane.showMessageDialog(this, "El alumno ya está inscripto en esa materia.", "Error", ERROR);
+        }
+        
+        
     }//GEN-LAST:event_btnInscribirActionPerformed
 
     private void cmbMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbMateriasActionPerformed
@@ -127,12 +175,20 @@ public class VistaInscripcion extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalirActionPerformed
 
+    private void cmbAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbAlumnosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbAlumnosActionPerformed
 
+
+    
+    
+    // Cambio de String a objeto personalizado a través de propiedades y code:
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnInscribir;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JComboBox<String> cmbAlumnos;
-    private javax.swing.JComboBox<String> cmbMaterias;
+    private javax.swing.JComboBox<Alumno> cmbAlumnos;
+    private javax.swing.JComboBox<Materia> cmbMaterias;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

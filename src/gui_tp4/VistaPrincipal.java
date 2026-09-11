@@ -2,6 +2,8 @@
 
 package gui_tp4;
 
+import java.util.HashSet;
+
 import javax.swing.ImageIcon;
 
 
@@ -9,6 +11,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VistaPrincipal.class.getName());
 
+    // HashSet accesibles para el resto de las vistas:
+    private static HashSet<Alumno> setDeAlumnos = new HashSet<>();
+    private static HashSet<Materia> setDeMaterias = new HashSet<>();
+    
+    
    
     public VistaPrincipal() {
         initComponents();
