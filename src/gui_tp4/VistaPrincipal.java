@@ -83,6 +83,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         mnbPrincipal.add(mnuRegistro);
 
         mnuSalir.setText("Salir");
+        mnuSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mnuSalirMouseClicked(evt);
+            }
+        });
         mnbPrincipal.add(mnuSalir);
 
         setJMenuBar(mnbPrincipal);
@@ -134,6 +139,12 @@ public class VistaPrincipal extends javax.swing.JFrame {
         vista.setVisible(true);      
         
     }//GEN-LAST:event_mniFormularioInscripcionActionPerformed
+
+    private void mnuSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuSalirMouseClicked
+       
+        dispose();
+        
+    }//GEN-LAST:event_mnuSalirMouseClicked
 
     
     public static void main(String args[]) {

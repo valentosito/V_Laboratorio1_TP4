@@ -83,6 +83,7 @@ public class VistaInscripcion extends javax.swing.JInternalFrame {
         jLabel3.setText("Elija un alumno:");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        cmbMaterias.setPreferredSize(new java.awt.Dimension(180, 30));
         cmbMaterias.addActionListener(this::cmbMateriasActionPerformed);
 
         cmbAlumnos.addActionListener(this::cmbAlumnosActionPerformed);
@@ -138,7 +139,7 @@ public class VistaInscripcion extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(cmbAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalir)
                     .addComponent(btnInscribir))

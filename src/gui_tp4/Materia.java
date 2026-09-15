@@ -38,11 +38,6 @@ public class Materia {
     }
 
     @Override
-    public String toString() {
-        return "Materia{" + "idMateria=" + idMateria + ", nombre=" + nombre + ", anio=" + anio + '}';
-    }
-
-    @Override
     public int hashCode() {
         int hash = 7;
         hash = 83 * hash + this.idMateria;
@@ -65,6 +60,9 @@ public class Materia {
     }
     
     
-    
+     @Override
+    public String toString() {
+        return idMateria + " - " + nombre + " - " + anio;
+    }
     
 }
